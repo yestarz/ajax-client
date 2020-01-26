@@ -60,3 +60,18 @@
 
 1. Access-Control-Allow-Origin 必须是全匹配，不能使用*
 2. Access-Control-Allow-Credentials 设置为true
+
+
+
+### nginx配置：
+
+在访问被调用方的地方加配置：
+
+```conf
+add_header Access-Control-Allow-Methods *;
+add_header Access-Control-Max-Age 3600;
+add_header Access-Control-Allow-Credentials true;
+add_header Access-Control-Allow-Origin $http_origin;
+add_header Access-Control-Allow-Headers $http_access_control_request_headers;
+```
+
